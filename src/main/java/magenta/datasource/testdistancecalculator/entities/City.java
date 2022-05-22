@@ -14,13 +14,13 @@ public class City {
     private Integer id;
 
     @Column
-    private String Name;
+    private String name;
 
     @Column
-    private Float Latitude;
+    private double latitude;
 
     @Column
-    private Float Longitude;
+    private double longitude;
 
 
 }

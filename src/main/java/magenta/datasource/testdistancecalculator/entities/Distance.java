@@ -14,9 +14,12 @@ public class Distance {
     private Integer id;
 
     @Column
-    private String from_city;
+    private String fromCity;
 
     @Column
-    private String to_city;
+    private String toCity;
+
+    @Column
+    private double distance;
 
 }

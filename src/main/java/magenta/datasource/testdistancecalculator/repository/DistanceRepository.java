@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DistanceRepository extends JpaRepository<Distance,Long> {
+    Distance findByFromCityAndToCity(String fromCity, String toCity);
 }
