@@ -1,4 +1,56 @@
 package magenta.datasource.testdistancecalculator.services;
 
-public class UploadService {
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import magenta.datasource.testdistancecalculator.entities.City;
+import magenta.datasource.testdistancecalculator.entities.DistanceInfo;
+import magenta.datasource.testdistancecalculator.repository.CityRepository;
+import magenta.datasource.testdistancecalculator.repository.DistanceRepository;
+import magenta.datasource.testdistancecalculator.serviceInterface.UploadServiceInterface;
+import magenta.datasource.testdistancecalculator.utils.XmlData;
+import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
+@Service
+public class UploadService implements UploadServiceInterface {
+
+    CityRepository cityRepository;
+    DistanceRepository distanceRepository;
+
+    public UploadService(CityRepository cityRepository, DistanceRepository distanceRepository){
+        this.cityRepository = cityRepository;
+        this.distanceRepository = distanceRepository;
+    }
+
+    public void uploadData() throws IOException {
+        XmlData data = readData();
+        List<City> cities = data.getCities();
+        List<DistanceInfo> distanceInfos = data.getDistanceInfos();
+        for (City city : cities) {
+            cityRepository.save(city);
+        }
+        for (DistanceInfo distance : distanceInfos) {
+            distanceRepository.save(distance);
+        }
+    }
+
+    public XmlData readData() throws IOException {
+        ObjectMapper mapper = new XmlMapper();
+
+        String readContent = new String(Files.readAllBytes(Paths.get("C:\\Users\\pazi08\\IdeaProjects\\WildFly" +
+                "\\src\\main\\java\\magenta\\datasource\\testdistancecalculator\\xmlFiles\\City.xml")));
+
+        XmlData data = mapper.readValue(readContent, XmlData.class);
+//            List<City> cities = Arrays.asList(mapper.readValue(readContent, City[].class));
+//            ObjectMapper mapper1 = new XmlMapper();
+//            List<DistanceInfo> distanceInfos = Arrays.asList(mapper1.readValue(readContent, DistanceInfo[].class));
+        return data;
+    }
+
+
 }
