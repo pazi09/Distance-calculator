@@ -1,0 +1,26 @@
+<XmlData>
+    <cities>
+        <city>
+            <name>Vladimir</name>
+            <latitude>56.1446</latitude>
+            <longitude>40.41787</longitude>
+        </city>
+        <city>
+            <name>Omsk</name>
+            <latitude>54.9924</latitude>
+            <longitude>73.3686</longitude>
+        </city>
+    </cities>
+    <distanceInfos>
+        <distanceInfo>
+            <fromCity>Vladimir</fromCity>
+            <toCity>Samara</toCity>
+            <distance>929.0</distance>
+        </distanceInfo>
+        <distanceInfo>
+            <fromCity>Vladimir</fromCity>
+            <toCity>Omsk</toCity>
+            <distance>2058.0</distance>
+        </distanceInfo>
+    </distanceInfos>
+</XmlData>
