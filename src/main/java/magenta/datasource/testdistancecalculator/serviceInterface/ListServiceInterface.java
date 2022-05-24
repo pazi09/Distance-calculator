@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ListServiceInterface {
 
-    ResponseEntity<List<City>> showAll();
+    ResponseEntity<?> showAll();
 }

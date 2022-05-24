@@ -23,7 +23,7 @@ public class ListService implements ListServiceInterface {
     }
 
     @Override
-    public ResponseEntity<List<City>>  showAll(){
+    public ResponseEntity<?>  showAll(){
         try {
             List<City> cities = new ArrayList<City>();
             cityRepository.findAll().forEach(cities::add);

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.io.IOException;
@@ -34,7 +35,8 @@ public class MainController {
     }
 
     @GetMapping("/cities")
-    public ResponseEntity<List<City>> showCityList(){
+    public ResponseEntity<?> showCityList(){
+
         return listService.showAll();
     }
 
@@ -58,10 +60,10 @@ public class MainController {
         return null;
     }
 
-    @GetMapping("/upload")
-    public HttpStatus uploadData()  {
+    @PostMapping("/upload")
+    public HttpStatus uploadData(@RequestParam("file") MultipartFile multipartFile)  {
         try {
-            uploadService.uploadData();
+            uploadService.uploadData(multipartFile);
             return HttpStatus.OK;
         } catch (IOException e) {
             e.printStackTrace();
