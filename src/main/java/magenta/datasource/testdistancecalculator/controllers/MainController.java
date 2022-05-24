@@ -55,7 +55,7 @@ public class MainController {
                     calculationService.crowFlight(calculationRequest.getFromCity(), calculationRequest.getToCity()),
                     calculationService.distanceMatrix(calculationRequest.getFromCity(), calculationRequest.getToCity())));
         }
-        return null;
+        return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @PostMapping("/upload")
@@ -65,7 +65,7 @@ public class MainController {
             return HttpStatus.OK;
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
+            return HttpStatus.INTERNAL_SERVER_ERROR;
         }
     }
 
