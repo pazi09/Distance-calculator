@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: Roman Bragin
+      changes:
+        - createTable:
+            tableName: distance_info
+            columns:
+              - column:
+                  name: id
+                  type: integer
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: from_city
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: to_city
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: distance
+                  type: float
+                  constraints:
+                    nullable: false
