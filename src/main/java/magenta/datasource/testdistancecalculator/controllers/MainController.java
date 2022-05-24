@@ -1,6 +1,5 @@
 package magenta.datasource.testdistancecalculator.controllers;
 
-import magenta.datasource.testdistancecalculator.entities.City;
 import magenta.datasource.testdistancecalculator.payload.request.CalculationRequest;
 import magenta.datasource.testdistancecalculator.payload.response.AllCalculationResponse;
 import magenta.datasource.testdistancecalculator.payload.response.CalculationResponse;
@@ -15,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.io.IOException;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api")

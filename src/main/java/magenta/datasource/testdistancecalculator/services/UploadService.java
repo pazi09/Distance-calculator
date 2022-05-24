@@ -13,9 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 @Service
@@ -55,9 +52,6 @@ public class UploadService implements UploadServiceInterface {
         ObjectMapper mapper = new XmlMapper();
 
         String readContent = new String(file.getBytes());
-
-//        String readContent = new String(Files.readAllBytes(Paths.get("C:\\Users\\pazi08\\IdeaProjects\\WildFly" +
-//                "\\src\\main\\java\\magenta\\datasource\\testdistancecalculator\\xmlFiles\\City.xml")));
 
         XmlData data = mapper.readValue(readContent, XmlData.class);
 //            List<City> cities = Arrays.asList(mapper.readValue(readContent, City[].class));

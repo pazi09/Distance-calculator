@@ -46,7 +46,10 @@ public class CalculationService implements CalculationServiceInterface {
     }
 
     public double distanceMatrix(String city1, String city2){
-        return distanceRepository.findByFromCityAndToCity(city1,city2).getDistance();
+        if (distanceRepository.findByFromCityAndToCity(city1,city2).getDistance() != 0) {
+            return distanceRepository.findByFromCityAndToCity(city1, city2).getDistance();
+        }
+        return 0;
     }
 
 }
